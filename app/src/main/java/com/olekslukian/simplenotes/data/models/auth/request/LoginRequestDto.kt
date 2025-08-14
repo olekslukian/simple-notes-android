@@ -1,6 +1,6 @@
 package com.olekslukian.simplenotes.data.models.auth.request
 
-data class LoginDto(
+data class LoginRequestDto(
     val email: String,
     val password: String
 )
