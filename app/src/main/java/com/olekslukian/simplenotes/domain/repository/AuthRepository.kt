@@ -7,7 +7,7 @@ import com.olekslukian.simplenotes.domain.models.RegisterModel
 
 interface AuthRepository {
     suspend fun register(registerModel: RegisterModel) : Boolean
-    suspend fun logIn(loginModel: LoginModel) : AuthTokensModel
+    suspend fun login(loginModel: LoginModel) : AuthTokensModel
     suspend fun refreshToken(refreshToken: String) : AuthTokensModel
     suspend fun changePassword(changePasswordModel: ChangePasswordModel) : Boolean
 }

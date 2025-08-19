@@ -1,6 +1,8 @@
 package com.olekslukian.simplenotes.data.di
 
 import com.olekslukian.simplenotes.data.network.AuthService
+import com.olekslukian.simplenotes.data.repository.AuthRepositoryImpl
+import com.olekslukian.simplenotes.domain.repository.AuthRepository
 import com.olekslukian.simplenotes.utils.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -26,5 +28,11 @@ class NetworkModule {
     @Singleton
     fun providerAuthService(retrofit: Retrofit): AuthService {
         return retrofit.create(AuthService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providerAuthRepositoryImpl(authService: AuthService) : AuthRepository {
+        return AuthRepositoryImpl(authService)
     }
 }

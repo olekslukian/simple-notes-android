@@ -1,7 +1,14 @@
 package com.olekslukian.simplenotes.domain.models
 
+import com.olekslukian.simplenotes.core.architecture.DomainModel
+import com.olekslukian.simplenotes.core.architecture.IValidable
+import com.olekslukian.simplenotes.core.architecture.ValueObject
+
 data class ChangePasswordModel(
-    val oldPassword: String,
-    val newPassword: String,
-    val confirmNewPassword: String
-)
+    val oldPassword: ValueObject<String>,
+    val newPassword: ValueObject<String>,
+    val newPasswordConfirmation: ValueObject<String>
+) : DomainModel() {
+    override val validationProperties: List<IValidable>
+        get() = listOf(oldPassword, newPassword, newPasswordConfirmation)
+}
