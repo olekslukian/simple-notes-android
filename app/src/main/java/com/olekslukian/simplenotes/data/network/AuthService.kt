@@ -13,10 +13,10 @@ import retrofit2.http.Query
 interface AuthService {
 
     @POST("/auth/register")
-    suspend fun registerUser(@Body registerDto : RegisterRequestDto) : Boolean
+    suspend fun register(@Body registerDto : RegisterRequestDto) : Boolean
 
     @POST("/auth/login")
-    suspend fun logIn(@Body loginDto : LoginRequestDto) : TokensResponseDto
+    suspend fun login(@Body loginDto : LoginRequestDto) : TokensResponseDto
 
     @GET("/auth/refresh-token")
     suspend fun refreshToken(@Query("refreshToken") refreshToken: String): TokensResponseDto

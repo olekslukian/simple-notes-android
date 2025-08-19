@@ -7,8 +7,8 @@ import com.olekslukian.simplenotes.core.architecture.ValueObject
 data class ChangePasswordModel(
     val oldPassword: ValueObject<String>,
     val newPassword: ValueObject<String>,
-    val confirmNewPassword: ValueObject<String>
+    val newPasswordConfirmation: ValueObject<String>
 ) : DomainModel() {
     override val validationProperties: List<IValidable>
-        get() = listOf(oldPassword, newPassword, confirmNewPassword)
+        get() = listOf(oldPassword, newPassword, newPasswordConfirmation)
 }
