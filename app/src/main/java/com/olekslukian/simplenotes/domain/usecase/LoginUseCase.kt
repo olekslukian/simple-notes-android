@@ -12,7 +12,7 @@ class LoginUseCase @Inject constructor(private val authRepository: AuthRepositor
     operator fun invoke(loginModel: LoginModel): Flow<Result<AuthTokensModel>> = flow {
         emit(Result.Loading())
         try {
-            emit(Result.Success(authRepository.logIn(loginModel)))
+            emit(Result.Success(authRepository.login(loginModel)))
         } catch (e: Exception) {
             emit(Result.Error(message = "LogInUseCase: ${e.message}"))
         }
