@@ -1,5 +1,6 @@
 package com.olekslukian.simplenotes.domain.usecase
 
+import android.util.Log
 import com.olekslukian.simplenotes.core.Result
 import com.olekslukian.simplenotes.domain.models.ChangePasswordModel
 import com.olekslukian.simplenotes.domain.repository.AuthRepository
@@ -13,6 +14,7 @@ class ChangePasswordUseCase @Inject constructor(private val authRepository: Auth
         try {
             emit(Result.Success(authRepository.changePassword(changePasswordModel)))
         } catch (e: Exception) {
+            Log.e("ChangePasswordUseCase", "Error changing password", e)
             emit(Result.Error(message = "ChangePasswordUseCase: ${e.message}"))
         }
     }

@@ -19,6 +19,8 @@ hilt-navigation-compose = "1.2.0"
 view-model-compose = "2.9.2"
 coroutines-compose = "1.9.0"
 ksp = "2.0.21-1.0.28"
+jwt = "4.4.0"
+preferences-datastore = "1.1.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,6 +46,8 @@ navigation-compose = { group = "androidx.navigation", name = "navigation-compose
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
 view-model-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "view-model-compose" }
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines-compose" }
+jwt = {group = "com.auth0", name = "java-jwt", version.ref = "jwt"}
+prefereces-datastore = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "preferences-datastore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
