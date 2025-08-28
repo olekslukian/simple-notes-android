@@ -26,14 +26,13 @@ sealed class ValueObject<out T> : IValueObject<T> {
             }
         }
 
+        fun <T> invalid(): ValueObject<T> = Invalid
+
         private fun <T> validate(value: T?) : T?{
             return value;
         }
-    }
-}
 
-fun <T> ValueObject<T>.invalid(): ValueObject<Nothing> {
-    return ValueObject(null)
+    }
 }
 
 fun <T> ValueObject<T>.getOr(fallback: T): T {

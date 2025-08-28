@@ -1,10 +1,24 @@
 package com.olekslukian.simplenotes.presentation.views.auth.viewmodel
 
+import com.olekslukian.simplenotes.core.architecture.ValueObject
+import com.olekslukian.simplenotes.core.valueobjects.EmailValueObject
+import com.olekslukian.simplenotes.core.valueobjects.PasswordValueObject
+
+enum class AuthStatus {
+    INITIAL,
+    LOADING,
+    SUCCESS,
+    FAILURE
+}
+
 data class AuthState(
-    val email: String = "",
-    val password: String = "",
-    val isEmailValid: Boolean = true,
-    val isPasswordValid: Boolean = true,
-    val isLoading: Boolean = false,
-    val error: String = ""
+    val email: EmailValueObject = EmailValueObject.invalid(),
+    val password: PasswordValueObject = PasswordValueObject.invalid(),
+    val isEmailValid: Boolean = false,
+    val isPasswordValid: Boolean = false,
+    val isLoginEnabled: Boolean = false,
+    val authStatus: AuthStatus = AuthStatus.INITIAL,
+    val error: ValueObject<String> = ValueObject.invalid()
 )
+
+
