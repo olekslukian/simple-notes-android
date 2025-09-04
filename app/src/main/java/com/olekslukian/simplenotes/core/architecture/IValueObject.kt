@@ -5,4 +5,9 @@ interface IValueObject<out T> : IValidable {
 }
 
 
+fun <T> IValueObject<T>.getOr(fallback: T): T {
+    return value ?: fallback
+}
 
+val <T> IValueObject<T>.getOrNull: T?
+    get() = value

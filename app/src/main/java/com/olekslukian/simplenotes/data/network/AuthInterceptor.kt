@@ -8,12 +8,13 @@ import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
 class AuthInterceptor  @Inject constructor(
     private val tokenManager: TokenManager,
-    private val authService: AuthService
+    private val authServiceProvider: Provider<AuthService>
 ) : Interceptor{
     private val mutex = Mutex()
 
@@ -64,7 +65,7 @@ class AuthInterceptor  @Inject constructor(
             }
 
             try {
-                val tokensResponse = authService.refreshToken(refreshToken)
+                val tokensResponse = authServiceProvider.get().refreshToken(refreshToken)
                 val accessToken = tokensResponse.accessToken
                 val newRefreshToken = tokensResponse.refreshToken
 

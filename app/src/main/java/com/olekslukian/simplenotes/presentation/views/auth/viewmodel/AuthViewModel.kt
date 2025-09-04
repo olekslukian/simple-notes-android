@@ -4,11 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.olekslukian.simplenotes.core.Result
 import com.olekslukian.simplenotes.core.architecture.ValueObject
-import com.olekslukian.simplenotes.core.valueobjects.EmailValueObject
-import com.olekslukian.simplenotes.core.valueobjects.PasswordValueObject
 import com.olekslukian.simplenotes.domain.models.LoginModel
 import com.olekslukian.simplenotes.domain.usecase.LoginUseCase
-import com.olekslukian.simplenotes.utils.RegExp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,35 +26,37 @@ class AuthViewModel @Inject constructor(private val loginIUseCase: LoginUseCase)
     fun onEvent(event: AuthEvent)  {
         when (event) {
             is AuthEvent.EmailChanged -> {
-                val emailVO = EmailValueObject(event.email)
 
                 _uiState.value = _uiState.value.copy(
-                    email = emailVO,
-                    isEmailValid = emailVO.isValid ,
-                    isLoginEnabled = emailVO.isValid && _uiState.value.password.isValid
+                    email = event.email,
                 )
             }
             is AuthEvent.PasswordChanged -> {
-                val passwordVO = PasswordValueObject(event.password)
 
                 _uiState.value = _uiState.value.copy(
-                    password = passwordVO,
-                    isPasswordValid = passwordVO.isValid,
-                    isLoginEnabled = _uiState.value.isEmailValid && passwordVO.isValid
+                    password = event.password,
                 )
             }
             is AuthEvent.LoginEvent -> {
                 login()
             }
             is AuthEvent.ErrorDismissed -> {
-               _uiState.value.copy(error = ValueObject.invalid())
+               _uiState.value = _uiState.value.copy(error = ValueObject.invalid())
             }
         }
     }
 
     private fun login() {
        val currentState = _uiState.value
-       if (!currentState.isLoginEnabled) return
+
+        if (!currentState.email.isValid || !currentState.password.isValid) {
+            _uiState.value = currentState.copy(
+                emailError = !currentState.email.isValid,
+                passwordError = !currentState.password.isValid,
+            )
+
+            return
+        }
 
         viewModelScope.launch {
             _uiState.value = currentState.copy(authStatus = AuthStatus.LOADING)

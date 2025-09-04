@@ -26,7 +26,7 @@ sealed class ValueObject<out T> : IValueObject<T> {
             }
         }
 
-        fun <T> invalid(): ValueObject<T> = Invalid
+        fun <T> invalid(): ValueObject<T> = ValueObject<T>(null)
 
         private fun <T> validate(value: T?) : T?{
             return value;
@@ -34,16 +34,3 @@ sealed class ValueObject<out T> : IValueObject<T> {
 
     }
 }
-
-fun <T> ValueObject<T>.getOr(fallback: T): T {
-    return when (this) {
-        is ValueObject.Valid -> this.value
-        is ValueObject.Invalid -> fallback
-    }
-}
-
-val <T> ValueObject<T>.getOrNull : T?
-    get() = when (this) {
-        is ValueObject.Valid -> value
-        is ValueObject.Invalid -> null
-    }
