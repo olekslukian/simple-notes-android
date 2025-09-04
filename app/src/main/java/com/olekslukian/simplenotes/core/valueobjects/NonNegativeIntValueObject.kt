@@ -1,10 +1,12 @@
 package com.olekslukian.simplenotes.core.valueobjects
 
 import com.olekslukian.simplenotes.core.architecture.CustomValueObject
-import com.olekslukian.simplenotes.core.architecture.ValueObject
 
-object NonNegativeIntValueObject : CustomValueObject<Int>(
-    validator = { it != null && it >= 0 }
+data class NonNegativeIntValueObject(override val value: Int?) : CustomValueObject<Int>(
+    value =  value,  validator = { it != null && it >= 0 }
 ) {
-    operator fun invoke(value: Int?) : ValueObject<Int> = create(value)
+    companion object {
+        fun invalid(): NonNegativeIntValueObject = NonNegativeIntValueObject(null)
+    }
 }
+

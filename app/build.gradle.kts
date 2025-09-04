@@ -48,6 +48,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.prefereces.datastore)
+    implementation(libs.jwt)
     implementation(libs.retrofit2)
     implementation(libs.converter.gson)
     implementation(libs.okhttp3.logging.interceptor)
