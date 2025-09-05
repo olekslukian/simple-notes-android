@@ -1,9 +1,7 @@
-package com.olekslukian.simplenotes.presentation.views.auth.viewmodel
+package com.olekslukian.simplenotes.presentation.views.auth.viewModel
 
 import com.olekslukian.simplenotes.core.architecture.ValueObject
-import com.olekslukian.simplenotes.core.valueobjects.EmailValueObject
-import com.olekslukian.simplenotes.core.valueobjects.NonEmptyStringValueObject
-import com.olekslukian.simplenotes.core.valueobjects.PasswordValueObject
+import com.olekslukian.simplenotes.core.valueObjects.NonEmptyStringValueObject
 
 enum class AuthStatus {
     INITIAL,

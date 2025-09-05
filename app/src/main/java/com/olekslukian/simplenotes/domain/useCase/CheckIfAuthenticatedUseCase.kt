@@ -1,4 +1,4 @@
-package com.olekslukian.simplenotes.domain.usecase
+package com.olekslukian.simplenotes.domain.useCase
 
 import com.olekslukian.simplenotes.core.Result
 import com.olekslukian.simplenotes.domain.repository.AuthRepository

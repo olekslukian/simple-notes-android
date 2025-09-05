@@ -1,11 +1,11 @@
-package com.olekslukian.simplenotes.presentation.views.auth.viewmodel
+package com.olekslukian.simplenotes.presentation.views.auth.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.olekslukian.simplenotes.core.Result
 import com.olekslukian.simplenotes.core.architecture.ValueObject
 import com.olekslukian.simplenotes.domain.models.LoginModel
-import com.olekslukian.simplenotes.domain.usecase.LoginUseCase
+import com.olekslukian.simplenotes.domain.useCase.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

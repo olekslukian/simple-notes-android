@@ -1,4 +1,4 @@
-package com.olekslukian.simplenotes.core.valueobjects
+package com.olekslukian.simplenotes.core.valueObjects
 
 import com.olekslukian.simplenotes.core.architecture.CustomValueObject
 

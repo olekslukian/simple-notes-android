@@ -1,8 +1,7 @@
-package com.olekslukian.simplenotes.domain.usecase
+package com.olekslukian.simplenotes.domain.useCase
 
 import android.util.Log
 import com.olekslukian.simplenotes.core.Result
-import com.olekslukian.simplenotes.domain.models.AuthTokensModel
 import com.olekslukian.simplenotes.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

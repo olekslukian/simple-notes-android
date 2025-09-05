@@ -1,6 +1,6 @@
-package com.olekslukian.simplenotes.presentation.views.auth.viewmodel
+package com.olekslukian.simplenotes.presentation.views.auth.viewModel
 
-import com.olekslukian.simplenotes.core.valueobjects.NonEmptyStringValueObject
+import com.olekslukian.simplenotes.core.valueObjects.NonEmptyStringValueObject
 
 sealed class AuthEvent {
     data class EmailChanged(val email: NonEmptyStringValueObject) : AuthEvent()

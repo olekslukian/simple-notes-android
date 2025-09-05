@@ -1,4 +1,4 @@
-package com.olekslukian.simplenotes.domain.usecase
+package com.olekslukian.simplenotes.domain.useCase
 
 import android.util.Log
 import com.olekslukian.simplenotes.core.Result

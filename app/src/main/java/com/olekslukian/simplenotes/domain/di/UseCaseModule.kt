@@ -1,8 +1,8 @@
 package com.olekslukian.simplenotes.domain.di
 
 import com.olekslukian.simplenotes.domain.repository.AuthRepository
-import com.olekslukian.simplenotes.domain.usecase.ChangePasswordUseCase
-import com.olekslukian.simplenotes.domain.usecase.RegisterUseCase
+import com.olekslukian.simplenotes.domain.useCase.ChangePasswordUseCase
+import com.olekslukian.simplenotes.domain.useCase.RegisterUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

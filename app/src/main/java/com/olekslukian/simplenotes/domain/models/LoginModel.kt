@@ -2,10 +2,7 @@ package com.olekslukian.simplenotes.domain.models
 
 import com.olekslukian.simplenotes.core.architecture.DomainModel
 import com.olekslukian.simplenotes.core.architecture.IValidable
-import com.olekslukian.simplenotes.core.architecture.ValueObject
-import com.olekslukian.simplenotes.core.valueobjects.EmailValueObject
-import com.olekslukian.simplenotes.core.valueobjects.NonEmptyStringValueObject
-import com.olekslukian.simplenotes.core.valueobjects.PasswordValueObject
+import com.olekslukian.simplenotes.core.valueObjects.NonEmptyStringValueObject
 
 data class LoginModel(
     val email: NonEmptyStringValueObject,

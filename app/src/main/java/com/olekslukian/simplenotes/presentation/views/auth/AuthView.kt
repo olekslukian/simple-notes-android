@@ -30,19 +30,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.olekslukian.simplenotes.core.architecture.getOr
-import com.olekslukian.simplenotes.core.valueobjects.EmailValueObject
-import com.olekslukian.simplenotes.core.valueobjects.NonEmptyStringValueObject
-import com.olekslukian.simplenotes.core.valueobjects.PasswordValueObject
-import com.olekslukian.simplenotes.presentation.views.auth.viewmodel.AuthEvent
-import com.olekslukian.simplenotes.presentation.views.auth.viewmodel.AuthNavigationEvent
-import com.olekslukian.simplenotes.presentation.views.auth.viewmodel.AuthStatus
-import com.olekslukian.simplenotes.presentation.views.auth.viewmodel.AuthViewModel
+import com.olekslukian.simplenotes.core.valueObjects.NonEmptyStringValueObject
+import com.olekslukian.simplenotes.presentation.views.auth.viewModel.AuthEvent
+import com.olekslukian.simplenotes.presentation.views.auth.viewModel.AuthNavigationEvent
+import com.olekslukian.simplenotes.presentation.views.auth.viewModel.AuthStatus
+import com.olekslukian.simplenotes.presentation.views.auth.viewModel.AuthViewModel
 
 @Composable
 fun AuthView(
